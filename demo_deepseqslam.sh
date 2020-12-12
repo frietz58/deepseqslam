@@ -6,7 +6,8 @@ BATCH_SIZE=16
 
 EPOCHS=100
 
-NGPUS=1
+# model requires > 10GB vram, i don't have that much, hence run on CPU
+NGPUS=0
 
 SEQ1='day_left'
 
