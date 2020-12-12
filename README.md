@@ -14,6 +14,18 @@ About
 DeepSeqSLAM is a scalable deep learning framework for `visual and positional representation learning` in the context of place recognition for simultaneous localization and mapping (SLAM) and autonomous driving research.
 
 
+## My model notes
+I think the components work as follows:
++ CNN calculates a descriptor for each image in sequence
++ RNN maps from a (temporally) local subsequence of image descriptors (from a complete image trajectory) to some latent representation
++ MLP maps from latent RNN output to classes. Classes are the locations. There are IMGS_IN_SEQUENCE - LOCAL_SEQUENCY_LEN locations.
+
+Todo:
++ Obtain positional ground truth data for WTM sequences, visual odometry?
++ Train on WTM data and eval performance
++ Figure out how to query for positions
++ Figure out how to do navigation based on this
+
 ## BibTex Citation
 
 If you find DeepSeqSLAM useful for your research, please consider citing:
