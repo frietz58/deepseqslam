@@ -347,6 +347,13 @@ class DeepSeqSLAMTrain(object):
         start = time.time()
         if FLAGS.ngpus > 0:
             target = target.cuda(non_blocking=True)
+        else:
+            # fix torch bug: model appears to live on GPU even when FLAGS.ngpus is set to 0
+            # Causes RuntimeError: model weights are on GPU, input on CPU
+            self.model.cnn.to("cpu")
+            self.model.lstm.to("cpu")
+            self.model.mlp.to("cpu")
+
         output = self.model(inp)
         record = {}
         loss = self.loss(output, target)
