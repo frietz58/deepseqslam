@@ -2,3 +2,4 @@ venv/
 datasets/GardensPointWalking/day_left
 datasets/GardensPointWalking/day_right
 datasets/GardensPointWalking/night_right
+/checkpoints/
